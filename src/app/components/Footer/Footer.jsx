@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div className="bg-[#244d3f] text-center pt-15 text-white pb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Keen<span className="font-semibold">Keeper</span></h2>
-            <p className="text-xs md:text-sm text-gray-300 mb-6">Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.</p>
+            <p className="w-[80%] mx-auto text-sm text-gray-300 mb-6">Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.</p>
             <div>
                 <h4 className="mb-4">Social Links</h4>
                 <ul className="flex justify-center items-center gap-3 text-black mb-10">
