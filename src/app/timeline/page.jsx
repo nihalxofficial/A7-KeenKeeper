@@ -21,7 +21,7 @@ const TimelinePage = () => {
         <div className="bg-[#f8fafc] py-20">
             <div className="w-9/12 mx-auto space-y-5">
                 <h2 className="font-bold text-4xl">Timeline</h2>
-                <div className="flex justify-between items-center gap-4">
+                <div className="flex justify-between items-center flex-col md:flex-row gap-4">
                     <select onChange={(e)=>setSelectedType(e.target.value)} defaultValue="Filter timeline" className="select">
                         <option disabled={true} >Filter timeline</option>
                         <option value="text">Text</option>

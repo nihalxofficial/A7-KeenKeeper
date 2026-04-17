@@ -12,7 +12,7 @@ const RecentInteractCard = ({sui}) => {
                     
                 </div>
                 <div>
-                    <h2 className="font-semibold">{sui.protocol}</h2>
+                    <h2 className="font-semibold capitalize">{sui.protocol}</h2>
                     <p className="text-sm text-gray-600">{sui.protocol === "text" || sui.protocol ==="video"? "Asked for career advice" : "Industry conference meetup"}</p>
                 </div>
 
