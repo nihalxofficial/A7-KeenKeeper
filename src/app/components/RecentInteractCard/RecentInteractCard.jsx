@@ -1,21 +1,24 @@
 import { LuMessageSquareMore, LuPhoneCall } from "react-icons/lu";
 import { PiVideoCameraLight } from "react-icons/pi";
 
-const RecentInteractCard = () => {
+const RecentInteractCard = ({sui}) => {
     return (
         <div className="bg-white p-4 border-b border-gray-200 flex justify-between items-center gap-5">
             <div className="flex justify-start items-center gap-2">
                 <div>
-                    <LuMessageSquareMore className="text-3xl font-extrabold"/>
+                    {sui.protocol==="text"? <LuMessageSquareMore className="text-3xl font-extrabold"/> :
+                    sui.protocol === "call"? <LuPhoneCall className="text-3xl font-extrabold"/> :
+                    <PiVideoCameraLight className="text-3xl font-extrabold"/>}
+                    
                 </div>
                 <div>
-                    <h2 className="font-semibold">Text</h2>
-                    <p className="text-sm text-gray-600">Asked for career advice</p>
+                    <h2 className="font-semibold">{sui.protocol}</h2>
+                    <p className="text-sm text-gray-600">{sui.protocol === "text" || sui.protocol ==="video"? "Asked for career advice" : "Industry conference meetup"}</p>
                 </div>
 
             </div>
             <div>
-                <h2 className="text-sm text-gray-600">Jan 28, 2026</h2>
+                <h2 className="text-sm text-gray-600">{sui.date}</h2>
             </div>
             
         </div>

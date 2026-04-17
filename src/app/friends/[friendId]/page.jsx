@@ -17,9 +17,11 @@ const FriendDetailsPage = () => {
     const {friends, loading} = useFriends()
 
     const currentFriend = friends.find(friend=> friend.id === Number(friendId))
-    const {name} = useContext(InteractionContext)
-    console.log(name);
+    const {interactions, handleInteraction} = useContext(InteractionContext)
     const status = currentFriend?.status
+
+    const singleUserInteractions = interactions.filter(itr => itr.id === Number(friendId))
+    
     
     
     
@@ -82,19 +84,19 @@ const FriendDetailsPage = () => {
                     <div className="rounded-md shadow-sm bg-white p-5 space-y-3">
                         <h2 className="font-semibold">Quick Check-In</h2>
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                            <button className=" btn h-25 shadow-sm bg-gray-100 text-center  rounded-md flex flex-col ">
+                            <button  onClick={()=>handleInteraction(currentFriend?.id, currentFriend?.name, "call")} className=" btn h-25 shadow-sm bg-gray-100 text-center  rounded-md flex flex-col ">
                                 <div className="flex justify-center items-center">
                                     <LuPhoneCall className="text-2xl font-extrabold"/>
                                 </div>
                                 <h2 className="text-sm xl:text-lg mt-2">Call</h2>
                             </button>
-                            <button className="btn h-25 shadow-sm bg-gray-100 text-center py-4 rounded-md flex flex-col">
+                            <button onClick={()=>handleInteraction(currentFriend?.id, currentFriend?.name, "text")} className="btn h-25 shadow-sm bg-gray-100 text-center py-4 rounded-md flex flex-col">
                                 <div className="flex justify-center items-center">
                                     <LuMessageSquareMore className="text-2xl font-semibold"/>
                                 </div>
                                 <h2 className="text-sm xl:text-lg mt-2">Text</h2>
                             </button>
-                            <button className="btn h-25 shadow-sm bg-gray-100 text-center py-4 rounded-md flex flex-col">
+                            <button onClick={()=>handleInteraction(currentFriend?.id, currentFriend?.name, "video")} className="btn h-25 shadow-sm bg-gray-100 text-center py-4 rounded-md flex flex-col">
                                 <div className="flex justify-center items-center">
                                     <PiVideoCameraLight className="text-3xl font-extrabold"/>
                                 </div>
@@ -109,8 +111,10 @@ const FriendDetailsPage = () => {
                             <h2 className="font-semibold">Recent Interactions</h2>
                             <button className="btn flex justify-between items-center gap-2"><FaHistory />Full History</button>
                         </div>
-                        <RecentInteractCard></RecentInteractCard>
-                        <RecentInteractCard></RecentInteractCard>
+                        {singleUserInteractions.length <= 0 ? <div className="p-10 flex justify-center items-center"><h2>No Interactions Yet...</h2></div>
+                        
+                        : singleUserInteractions.map((sui, idx) => <RecentInteractCard key={idx} sui={sui}></RecentInteractCard>)}
+                        
                     </div>
 
                 </div>
