@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaHome } from "react-icons/fa";
 
 const NotFoundPage = () => {
@@ -8,7 +9,7 @@ const NotFoundPage = () => {
                 <h2 className="capitalize text-[#244d3f] font-bold text-xl">Page not found</h2>
                 <p className="text-sm text-gray-600">Looks like this friendship link is broken. The page <br /> you are looking for doesn&apos;t exist or have been moved</p>
                 <div className="flex justify-center ">
-                    <button className="btn bg-[#244d3f] text-white flex justify-center items-center gap-2"><FaHome />Back to Home</button>
+                    <Link href="/" className="btn bg-[#244d3f] text-white flex justify-center items-center gap-2"><FaHome />Back to Home</Link>
                 </div>
             </div>
             
