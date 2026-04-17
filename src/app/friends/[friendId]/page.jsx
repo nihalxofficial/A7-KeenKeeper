@@ -12,16 +12,14 @@ import { useContext } from "react";
 import { InteractionContext } from "@/app/context/interactionContext";
 
 const FriendDetailsPage = () => {
-    // const {id} = useParams()
     const {friendId} = useParams()
     
-    // console.log(id);
     const {friends, loading} = useFriends()
 
     const currentFriend = friends.find(friend=> friend.id === Number(friendId))
-    // const {id, name, picture, days_since_contact, status, tags} = currentFriend
     const {name} = useContext(InteractionContext)
     console.log(name);
+    const status = currentFriend?.status
     
     
     
@@ -35,15 +33,14 @@ const FriendDetailsPage = () => {
                                 alt="Friend"
                                 height={600}
                                 width={600}
-                                
                                 className="rounded-full h-20 w-20 object-cover"></Image>
                         </div>
                         <h2 className="text-2xl font-bold ">{currentFriend?.name}</h2>
                         <div className="flex justify-center items-center gap-2">
-                            <span className="text-white capitalize bg-orange-400 rounded-full py-1 px-3 text-sm font-semibold">Almost Due</span>
+                            <span className={`text-white capitalize  ${status === "almost due"? "bg-orange-400" : status==="overdue"? "bg-red-400" : status==="on-track"? "bg-green-400" : ""} rounded-full py-1 px-3 text-sm font-semibold`}>{status}</span>
                         </div>
                         <div className="flex justify-center items-center gap-2 ">
-                            <span className="bg-green-200 py-1 px-3 rounded-full uppercase  text-sm font-semibold">Work</span>
+                            {currentFriend?.tags.map((tag, idx)=> <span key={idx} className="bg-green-200 py-1 px-3 rounded-full uppercase  text-sm font-semibold">{tag}</span>)}
                         </div>
                         <h2 className="text-gray-700"><i>&quot;{currentFriend?.bio}&quot;</i></h2>    
                         <p className="text-sm text-gray-600">Preferred: {currentFriend?.email}</p>
