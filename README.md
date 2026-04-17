@@ -7,7 +7,7 @@
 
 ## 📖 Description
 
-**KeenKeeper** is a personal relationship management app that helps me stay intentional about the friendships and connections that matter most in my life. Track interactions, spot who needs attention, visualize social habits, and never let an important relationship drift away unnoticed.
+**KeenKeeper** is a personal relationship management app that helps me stay intentional about the friendships and connections that matter most in my life. Track interactions, spot who needs attention, visualize social habits and never let an important relationship drift away unnoticed.
 
 ---
 
@@ -35,6 +35,7 @@ Visual charts breaking down interactions by type (text, call, video) — giving 
 | **Icons** | [React Icons](https://react-icons.github.io/react-icons/) |
 | **Charts** | [Recharts](https://recharts.org/) |
 | **Notifications** | [React Toastify](https://fkhadra.github.io/react-toastify/) |
+| **Metadata** | Next.js Metadata API |
 | **Images** | Next.js `<Image>` with remote image support |
 | **Deployment** | [Vercel](https://vercel.com/) |
 
@@ -43,8 +44,8 @@ Visual charts breaking down interactions by type (text, call, video) — giving 
 ## 🚀 All Features & Functionality
 
 ### 🏠 Home Page
-- **Summary Stats Bar** — Total friends count, On Track count, Need Attention count, and Interactions This Month, all shown as live stat cards
-- **Friend Cards Grid** — Responsive card layout showing each friend with their photo, name, and relationship status
+- **Summary Stats Bar** — Total friends count, On Track count, Need Attention count and Interactions This Month, all shown as live stat cards
+- **Friend Cards Grid** — Responsive card layout showing each friend with their photo, name and relationship status
 - **Loading Spinner** — Elegant loading state shown while friend data is being fetched
 - **Status Badges** — Visual indicators on each card showing relationship health (On Track / Needs Attention)
 
@@ -71,9 +72,12 @@ Visual charts breaking down interactions by type (text, call, video) — giving 
 - **Tailwind utility classes** — Fine-grained responsive breakpoints (`sm:`, `md:`, `lg:`)
 
 ### 🧭 Navigation
-- **Navbar** — Persistent top navigation with links to Home, Timeline, and Stats
+- **Navbar** — Persistent top navigation with links to Home, Timeline and Stats
 - **Footer** — Branded footer with Privacy Policy, Terms of Service and Cookies links
 - **Social Links** — Footer social link section
+
+### 🔍 SEO & Metadata
+- **Next.js Metadata API** — Page titles and meta descriptions configured via the `metadata` export in `layout.js` and `page.js` files, following the App Router convention for improved search engine visibility
 
 ---
 
