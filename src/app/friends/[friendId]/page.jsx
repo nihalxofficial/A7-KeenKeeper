@@ -10,6 +10,7 @@ import { useParams } from "next/navigation";
 import useFriends from "@/app/hooks/useFriends";
 import { useContext } from "react";
 import { InteractionContext } from "@/app/context/interactionContext";
+import { toast } from "react-toastify";
 
 const FriendDetailsPage = () => {
     const {friendId} = useParams()
@@ -21,6 +22,20 @@ const FriendDetailsPage = () => {
     const status = currentFriend?.status
 
     const singleUserInteractions = interactions.filter(itr => itr.id === Number(friendId))
+
+
+    const handleText = () => {
+        handleInteraction(currentFriend?.id, currentFriend?.name, "text")
+        toast.success(`Text with ${currentFriend?.name}`)
+    }
+    const handleAudio = () => {
+        handleInteraction(currentFriend?.id, currentFriend?.name, "call")
+        toast.success(`Call with ${currentFriend?.name}`)
+    }
+    const handleVideo = () => {
+        handleInteraction(currentFriend?.id, currentFriend?.name, "video")
+        toast.success(`Video with ${currentFriend?.name}`)
+    }
     
     
     
@@ -84,19 +99,19 @@ const FriendDetailsPage = () => {
                     <div className="rounded-md shadow-sm bg-white p-5 space-y-3">
                         <h2 className="font-semibold">Quick Check-In</h2>
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                            <button  onClick={()=>handleInteraction(currentFriend?.id, currentFriend?.name, "call")} className=" btn h-25 shadow-sm bg-gray-100 text-center  rounded-md flex flex-col ">
+                            <button  onClick={handleAudio} className=" btn h-25 shadow-sm bg-gray-100 text-center  rounded-md flex flex-col ">
                                 <div className="flex justify-center items-center">
                                     <LuPhoneCall className="text-2xl font-extrabold"/>
                                 </div>
                                 <h2 className="text-sm xl:text-lg mt-2">Call</h2>
                             </button>
-                            <button onClick={()=>handleInteraction(currentFriend?.id, currentFriend?.name, "text")} className="btn h-25 shadow-sm bg-gray-100 text-center py-4 rounded-md flex flex-col">
+                            <button onClick={handleText} className="btn h-25 shadow-sm bg-gray-100 text-center py-4 rounded-md flex flex-col">
                                 <div className="flex justify-center items-center">
                                     <LuMessageSquareMore className="text-2xl font-semibold"/>
                                 </div>
                                 <h2 className="text-sm xl:text-lg mt-2">Text</h2>
                             </button>
-                            <button onClick={()=>handleInteraction(currentFriend?.id, currentFriend?.name, "video")} className="btn h-25 shadow-sm bg-gray-100 text-center py-4 rounded-md flex flex-col">
+                            <button onClick={handleVideo} className="btn h-25 shadow-sm bg-gray-100 text-center py-4 rounded-md flex flex-col">
                                 <div className="flex justify-center items-center">
                                     <PiVideoCameraLight className="text-3xl font-extrabold"/>
                                 </div>

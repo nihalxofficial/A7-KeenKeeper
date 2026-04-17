@@ -17,7 +17,7 @@ const TimelineCard = ({interact}) => {
                             className='h-8 w-full object-contain'></Image>
                         </div>
                         <div>
-                            <h2 className="text-lg font-semibold capitalize">{interact.protocol} <span className=' text-gray-600 font-medium'>with {interact.name}</span></h2>
+                            <h2 className="text-lg font-semibold capitalize">{interact.protocol} <span className=' text-gray-600 lowercase font-medium'>with {interact.name}</span></h2>
                             <p className="text-sm text-gray-600">{interact.date}</p>
                         </div>
         
