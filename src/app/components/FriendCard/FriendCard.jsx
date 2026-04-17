@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const FriendCard = ({friend}) => {
     const {id, name, picture, days_since_contact, status, tags} = friend
     return (
-        <div className="bg-white rounded-md shadow-md p-5 text-center space-y-2">
+        <Link href={`/friends/${id}`} className="bg-white rounded-md shadow-md p-5 text-center space-y-2">
             <div className="flex justify-center items-center">
                 <Image src={picture}
                 alt="Friend"
@@ -20,7 +21,7 @@ const FriendCard = ({friend}) => {
                 <span className="text-white capitalize bg-orange-400 rounded-full py-1 px-3 text-sm font-semibold">{status}</span>
             </div>
             
-        </div>
+        </Link>
     );
 };
 
