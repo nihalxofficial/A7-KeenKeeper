@@ -7,13 +7,13 @@ const StatsPage = () => {
     const {interactions} = useContext(InteractionContext)
     console.log(interactions);
     const texts = interactions.filter(itr => itr.protocol==="text")
-    const audios = interactions.filter(itr => itr.protocol==="call")
+    const calls = interactions.filter(itr => itr.protocol==="call")
     const videos = interactions.filter(itr => itr.protocol==="video")
     
     const data = [
-        {name: "Text", value:texts.length, fill: "#a855f7"},
-        {name: "Audio", value:audios.length, fill: "#22c55e"},
-        {name: "Video", value:videos.length, fill: "#3b82f6"},
+        {name: "Text", value:texts.length, fill: "#7E35E1"},
+        {name: "Call", value:calls.length, fill: "#244D3F"},
+        {name: "Video", value:videos.length, fill: "#37A163"},
     ]
     return (
         <div className="bg-[#f8fafc] py-20">
@@ -27,17 +27,13 @@ const StatsPage = () => {
                                 data={data}
                                 innerRadius="80%"
                                 outerRadius="100%"
-                                // Corner radius is the rounded edge of each pie slice
                                 cornerRadius="50%"
                                 fill="#8884d8"
-                                // padding angle is the gap between each pie slice
                                 paddingAngle={5}
                                 dataKey="value"
                                 isAnimationActive={true}
                             />
-                            {/* <RechartsDevtools /> */}
-
-                                <Legend wrapperStyle={{ paddingTop: '25px' }} />
+                            <Legend wrapperStyle={{ paddingTop: '25px' }} />
                             <Tooltip/>
                         </PieChart>
                     </div>
