@@ -1,7 +1,11 @@
+"use client"
 import { TiTick } from "react-icons/ti";
 import TimelineCard from "../components/TimelineCard/TimelineCard";
+import { useContext } from "react";
+import { InteractionContext } from "../context/interactionContext";
 
-const page = () => {
+const TimelinePage = () => {
+    const {interactions} = useContext(InteractionContext)
     return (
         <div className="bg-[#f8fafc] py-20">
             <div className="w-9/12 mx-auto space-y-5">
@@ -12,10 +16,8 @@ const page = () => {
                     <option value="call">Call</option>
                     <option value="video">Video</option>
                 </select>
-                <TimelineCard/>
-                <TimelineCard/>
-                <TimelineCard/>
-                <TimelineCard/>
+                {interactions.length <=0 ? <div className="h-50 p-10 bg-white rounded-md shadow-sm flex justify-center items-center"><h2 className="font-semibold text-xl">No Interactions Yet...</h2></div>
+                : interactions.map((interact, idx)=> <TimelineCard key={idx} interact={interact}></TimelineCard>)}
 
             </div>
             
@@ -23,4 +25,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default TimelinePage;

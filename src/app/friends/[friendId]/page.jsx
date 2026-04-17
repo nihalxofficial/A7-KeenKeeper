@@ -111,7 +111,7 @@ const FriendDetailsPage = () => {
                             <h2 className="font-semibold">Recent Interactions</h2>
                             <button className="btn flex justify-between items-center gap-2"><FaHistory />Full History</button>
                         </div>
-                        {singleUserInteractions.length <= 0 ? <div className="p-10 flex justify-center items-center"><h2>No Interactions Yet...</h2></div>
+                        {singleUserInteractions.length <= 0 ? <div className="p-10 flex justify-center items-center"><h2>No Recent Interactions Yet...</h2></div>
                         
                         : singleUserInteractions.map((sui, idx) => <RecentInteractCard key={idx} sui={sui}></RecentInteractCard>)}
                         
