@@ -88,7 +88,7 @@ const page = () => {
                         </div>
                     </div>
 
-                    <div className="rounded-md shadow-sm bg-white p-5 space-y-3">
+                    <div className="rounded-md shadow-sm bg-white pt-5 px-5 space-y-3">
                         <div className="flex justify-between items-center gap-5 ">
                             <h2 className="font-semibold">Recent Interactions</h2>
                             <button className="btn flex justify-between items-center gap-2"><FaHistory />Full History</button>
